@@ -35,8 +35,10 @@ public class EmployeeService {
 
     public Employee getMinSalaryEmployee() {
         Employee e = null;
+        double minSalary = Double.MAX_VALUE;
         for (Map.Entry<Integer, Employee> entry : this.employees.entrySet()) {
-            if (entry.getValue().getSalary() < Double.MAX_VALUE) {
+            if (entry.getValue().getSalary() < minSalary) {
+                minSalary = entry.getValue().getSalary();
                 e = entry.getValue();
             }
         }
@@ -44,8 +46,10 @@ public class EmployeeService {
     }
     public Employee getMaxSalaryEmployee() {
         Employee e = null;
+        double maxSalary = Double.MIN_VALUE;
         for (Map.Entry<Integer, Employee> entry : this.employees.entrySet()) {
-            if (entry.getValue().getSalary() > Double.MIN_VALUE) {
+            if (entry.getValue().getSalary() > maxSalary) {
+                maxSalary = entry.getValue().getSalary();
                 e = entry.getValue();
             }
         }
